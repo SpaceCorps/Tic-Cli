@@ -1,0 +1,65 @@
+# Tic CLI
+
+> Fast, native command-line tool and agent interface for the TIC (tic.io) business intelligence and datasets API (company, person, vehicle, and bankruptcy lookup). Built in Rust for developers and autonomous AI agents.
+
+## When to Use This CLI
+
+Use the `tic` CLI whenever you need to:
+- **Inspect Swedish company records:** Look up companies by registration number (org nr) or internal TIC ID.
+- **Search corporate registries:** Search companies by name, address, phone number, or email.
+- **Analyze ownership & relationships:** Retrieve beneficial owners, board members/parties, ownership trees, and interactive corporate graph networks.
+- **Credit & compliance checks:** Query Kronofogden debtor summaries, corporate intelligence red flags/anomalies, and active bankruptcy proceedings.
+- **Vehicle & asset lookups:** Search Swedish vehicle registries by licence plate or VIN, or list all vehicles owned by a company.
+- **Person queries:** Look up persons by personal identity number (personnummer) and retrieve all associated company appointments and roles.
+- **Agentic automation:** Drive business intelligence workflows deterministically via YAML terminal output, raw JSON (`--json`), and stable numeric exit codes.
+
+Do NOT use this tool if:
+- You are querying companies outside of Sweden (TIC covers the Swedish national registries).
+- You need a graphical user interface instead of a command-line binary.
+
+## Core Agent Operating Principles
+
+1. **Authentication Options:**
+   - Pass `--account <name>` (short `-a <name>`) to use a configured account stored in your OS keystore.
+   - Or pass `--api-key <key>` directly with the command.
+   - Or set `export TIC_API_KEY="your-api-key"` in the environment.
+2. **Machine-Readable Outputs:** Always supply `--json` when parsing command results in scripts or LLM tool-calling loops.
+3. **Error Codes:** Non-zero exit codes carry structured error envelopes on stderr with stable machine-readable codes (`no_account`, `auth_required`, `not_found`, `rate_limited`, `invalid_input`, `network`).
+
+## Key Command Patterns
+
+### Authentication & Accounts
+- `tic login [name]`: Interactively authenticate and store the API token in the OS keystore.
+- `tic accounts add <name> --api-key <key>`: Store an account key in the local keystore.
+- `tic accounts list [--check]`: List all configured accounts and verify token validity.
+- `tic accounts test <name>`: Verify connectivity and inspect token identity.
+
+### Company Lookups
+- `tic company get <REG_NR> [-a <account>] [--json]`: Look up company by registration number (e.g. 556792-6687).
+- `tic company get-by-id <COMPANY_ID> [-a <account>] [--json]`: Look up company by internal TIC ID.
+- `tic company search <QUERY> [--query-by <fields>] [--per-page <n>]`: Search companies by name or field.
+- `tic company beneficial-owners <COMPANY_ID>`: Get beneficial owners.
+- `tic company graph <COMPANY_ID>`: Get ownership graph network.
+- `tic company tree <COMPANY_ID>`: Get corporate hierarchy tree.
+- `tic company parties <COMPANY_ID>`: Get board members, CEO, auditors.
+- `tic company intelligence <COMPANY_ID>`: Get anomaly and warning records.
+- `tic company debtor-summary <COMPANY_ID>`: Get unpaid debts at Kronofogden.
+- `tic company vehicles <COMPANY_ID>`: Get vehicles registered to the company.
+- `tic company properties <COMPANY_ID>`: Get properties owned by the company.
+
+### Person Lookups
+- `tic person search <QUERY>`: Search persons by personal identity number (use % for wildcard).
+- `tic person get <PERSON_ID>`: Get person details.
+- `tic person companies <PERSON_ID>`: Get all companies where a person has a role.
+
+### Vehicle & Bankruptcy Lookups
+- `tic vehicle search <QUERY> [--query-by licencePlate]`: Search vehicle registry.
+- `tic bankruptcy search <QUERY>`: Search bankruptcy filings and records.
+
+### Generic Search
+- `tic search <COLLECTION> <QUERY>`: Direct query against any TIC collection.
+
+## API Documentation & Links
+- Website & Documentation: https://spacecorps.github.io/Tic-Cli/
+- Exhaustive Agent Manual: https://spacecorps.github.io/Tic-Cli/llms-full.txt
+- Platform: https://tic.io

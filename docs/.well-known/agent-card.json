@@ -1,0 +1,17 @@
+{
+  "name": "Tic CLI Agent",
+  "description": "Agent interface and intelligence lookup tool for the TIC (tic.io) search and datasets API (company, person, vehicle, and bankruptcy lookup).",
+  "url": "https://spacecorps.github.io/Tic-Cli/",
+  "version": "1.0.0",
+  "capabilities": ["company_search", "beneficial_ownership", "debtor_summary", "vehicle_registry", "bankruptcy_records", "person_lookup"],
+  "skills": [
+    {
+      "name": "tic-cli",
+      "url": "https://spacecorps.github.io/Tic-Cli/llms.txt"
+    }
+  ],
+  "contact": {
+    "email": "contact@spacecorps.dev",
+    "url": "https://spacecorps.github.io/Tic-Cli/contact.html"
+  }
+}

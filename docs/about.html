@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Tic CLI</title>
+  <meta name="description" content="About Tic CLI: An open source native Rust command-line tool and agent interface for the TIC search and datasets API.">
+  <link rel="canonical" href="https://spacecorps.github.io/Tic-Cli/about.html">
+  <meta property="og:title" content="About · Tic CLI">
+  <meta property="og:description" content="About Tic CLI: An open source native Rust command-line tool and agent interface for the TIC search and datasets API.">
+  <meta property="og:url" content="https://spacecorps.github.io/Tic-Cli/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://spacecorps.github.io/Tic-Cli/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="is-agentic-site-type" content="content">
+  <style>
+    body { background: #090d16; color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; padding: 40px 20px; }
+    .content-box { max-width: 800px; margin: 0 auto; background: rgba(22, 27, 46, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 40px; }
+    h1 { font-size: 2.2rem; margin-bottom: 20px; color: #fff; }
+    h2 { font-size: 1.4rem; margin-top: 30px; margin-bottom: 12px; color: #38bdf8; }
+    p { margin-bottom: 16px; color: #94a3b8; }
+    a { color: #38bdf8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { display: inline-block; margin-bottom: 24px; color: #6366f1; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="content-box">
+    <a href="./" class="back">&larr; Back to Tic CLI</a>
+    <h1>About Tic CLI</h1>
+    
+    <p>Tic CLI is a high-performance, open-source command-line tool and programmatic automation interface designed specifically for the <a href="https://tic.io" target="_blank" rel="noopener noreferrer">TIC</a> business intelligence and datasets platform. Maintained under the SpaceCorps open-source engineering collective, the project provides developers and autonomous AI agents with a single, standalone binary capable of querying Swedish company intelligence, beneficial ownership networks, vehicle registries, debtor summaries, and bankruptcy records across macOS, Linux, and Windows without runtime dependencies or interpreter overhead.</p>
+
+    <h2>Project Mission & Origins</h2>
+    <p>The original prototype was implemented as a .NET global tool (<code>Tic.Console</code>) by Niels Bosma. To meet the demanding requirements of modern automated workflows and autonomous coding assistants, the tool was re-engineered in Rust (Edition 2024). This port delivers cold startup times of 1 to 3 milliseconds, deterministic multi-account security, zero runtime dependencies, and seamless integration with OS keystores.</p>
+
+    <h2>Architectural Principles</h2>
+    <p>Tic CLI adheres to the SpaceCorps CLI standard: safety, speed, and agentic interoperability. Credentials are never written to unencrypted configuration files by default; instead, keys are stored in native OS credential stores (macOS Keychain, Windows DPAPI, Linux Secret Service). The output protocol provides clean, human-readable YAML by default and strictly formatted JSON via <code>--json</code> for pipeline processing.</p>
+
+    <h2>Specification & Coverage</h2>
+    <p>The CLI provides comprehensive coverage of the TIC API endpoints, including company lookup by registration number or ID, multi-field search, beneficial ownership graphs, corporate tree hierarchies, anomaly intelligence records, board parties, Kronofogden debtor summaries, corporate vehicle registries, property holdings, person searches, and bankruptcy filings.</p>
+  </div>
+</body>
+</html>

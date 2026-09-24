@@ -1,0 +1,11 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "tic-cli",
+      "description": "Look up Swedish company records, beneficial owners, corporate ownership graphs, debtor registries, vehicle registries, person roles, and bankruptcy filings via native Rust CLI.",
+      "type": "skill-md",
+      "url": "https://spacecorps.github.io/Tic-Cli/llms.txt"
+    }
+  ]
+}
