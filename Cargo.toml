@@ -1,6 +1,6 @@
 [package]
 name = "tic"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
 rust-version = "1.89"
 description = "Fast, native agentic CLI for the TIC search and datasets API (company, person, vehicle, and bankruptcy lookup)"
